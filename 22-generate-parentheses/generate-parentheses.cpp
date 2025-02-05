@@ -18,12 +18,12 @@ public:
             op1.push_back(')');
             solve(op1, open, close-1, ans);
         }
-        // else if(close == 0){
-        //     //only choise is to use open bracket 
-        //     string op1 = op;
-        //     op1.push_back('(');
-        //     solve(op1, open-1, close, ans);
-        // }
+        else if(close == 0){
+            //only choise is to use open bracket 
+            string op1 = op;
+            op1.push_back('(');
+            solve(op1, open-1, close, ans);
+        }
         else{
             string op1 = op;
             string op2 = op;
