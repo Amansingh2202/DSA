@@ -13,7 +13,7 @@ public:
     dummy.pop_back();
     powerset(n-1,nums,dummy,ans);
 
-
+return ;
     }
     
 
