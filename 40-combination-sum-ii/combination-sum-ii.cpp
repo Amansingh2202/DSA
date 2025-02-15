@@ -3,23 +3,23 @@ public:
     void get_ans(int index,int target,vector<int>& candidates,int n,vector<vector<int>>& ans,vector<int>& temp)
     {   
         
-         if (target == 0) {  // Found a valid combination
+         if (target == 0) {  
             ans.push_back(temp);
             return;
         }
-        if (index == n || target < 0) return;  // Base case
+        if (index == n || target < 0) return; 
 
-        // Include the current element
+    
         temp.push_back(candidates[index]);
         get_ans(index + 1, target - candidates[index], candidates, n, ans, temp);
         temp.pop_back();
 
-        // Skip all duplicate elements
+      
         while (index + 1 < n && candidates[index] == candidates[index + 1]) {
             index++;
         }
 
-        // Move to the next unique element
+        
         get_ans(index + 1, target, candidates, n, ans, temp);
     }
 
