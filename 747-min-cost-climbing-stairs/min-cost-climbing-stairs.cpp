@@ -1,42 +1,21 @@
 class Solution {
 public:
- int helper(int n,vector<int> cost,vector<int>&dp)
-  {
-
-       if(n==1)return cost[1];
-       if(n==0) return cost[0];
-
-       int left;
-       int right;
-
-        if(dp[n]!=-1)return dp[n];
-       if(n==cost.size())
-       {
-
-         left=helper(n-1,cost,dp);
-         right=helper(n-2,cost,dp);
-
-       }
-       else{
-         
-
-          left=helper(n-1,cost,dp)+cost[n];
-          right=helper(n-2,cost,dp)+cost[n];
-
-
-       }
-       return dp[n]=min(left,right);
-
-
-
-
-  }
+    vector<int> memo;
+    
     int minCostClimbingStairs(vector<int>& cost) {
-        int n =cost.size();
-        vector<int>dp(n+1,-1);
-        dp[0]=cost[0];
-        dp[1]=cost[1];
-
-        return dp[n]=helper(n,cost,dp);
+        memo.resize(cost.size(), -1);
+        return min(dfs(cost, 0), dfs(cost, 1));
+    }
+    
+    int dfs(vector<int>& cost, int i) {
+        if (i >= cost.size()) {
+            return 0;
+        }
+        if (memo[i] != -1) {
+            return memo[i];
+        }
+        memo[i] = cost[i] + min(dfs(cost, i + 1),
+                                dfs(cost, i + 2));
+        return memo[i];
     }
 };
