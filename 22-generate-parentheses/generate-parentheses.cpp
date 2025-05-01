@@ -7,21 +7,21 @@ public:
         }
        
         if(open == close){
-            string op1 = op;
-            op1.push_back('(');
-            solve(op1, open-1, close, ans);
+            // string op1 = op;
+            op.push_back('(');
+            solve(op, open-1, close, ans);
         }
         else if(open == 0){
            
-            string op1 = op;
-            op1.push_back(')');
-            solve(op1, open, close-1, ans);
+            // string op1 = op;
+            op.push_back(')');
+            solve(op, open, close-1, ans);
         }
         else if(close == 0){
           
-            string op1 = op;
-            op1.push_back('(');
-            solve(op1, open-1, close, ans);
+            // string op1 = op;
+            op.push_back('(');
+            solve(op, open-1, close, ans);
         }
         else{
             string op1 = op;
