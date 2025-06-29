@@ -1,17 +1,18 @@
 class Solution {
 public:
-    void powerset(int n,vector<int>nums,vector<int> &dummy , vector<vector<int >>&ans){
-        if(n<0)
+    
+    void powerset(int index,vector<int>nums,vector<int> &dummy , vector<vector<int >>&ans,int n){
+        if(index==n)
         {
             ans.push_back(dummy);
             return ;
         }
         
     
-    dummy.push_back(nums[n]);
-    powerset(n-1,nums,dummy,ans);
+    dummy.push_back(nums[index]);
+    powerset(index+1,nums,dummy,ans,n);
     dummy.pop_back();
-    powerset(n-1,nums,dummy,ans);
+    powerset(index+1,nums,dummy,ans,n);
 
 return ;
     }
@@ -23,7 +24,9 @@ return ;
         int n=nums.size();
        vector<vector<int>>ans;
         vector<int>dummy;
-        powerset(n-1,nums,dummy,ans);
+        powerset(0,nums,dummy,ans,n);
         return ans;
     }
+
+    
 };
