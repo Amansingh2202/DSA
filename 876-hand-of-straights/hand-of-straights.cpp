@@ -13,18 +13,18 @@ public:
             freq[card]++;
         }
 
-        // Always process from the smallest available card
+        
         while (!freq.empty()) {
-            int start = freq.begin()->first;  // smallest card
+            int start = freq.begin()->first;  
 
-            // Try to create a group starting from 'start'
+          
             for (int i = 0; i < groupSize; ++i) {
                 int card = start + i;
 
-                if (freq[card] == 0) return false; // missing or used up
+                if (freq[card] == 0) return false; 
                 freq[card]--;
 
-                // Clean up to keep map small
+               
                 if (freq[card] == 0) {
                     freq.erase(card);
                 }
