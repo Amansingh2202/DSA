@@ -30,7 +30,7 @@ public:
         }
 
     
-        if (ans.empty() || ans.back()[0] != start || ans.back()[1] != end) {
+        if (ans.empty() || ans.back()[1] < start ) {
             ans.push_back({start, end});
         }
 
